@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Client</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!--Stylesheet Themeforest-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/user/assets/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="~/style.css" type="text/css" />
+    <link rel="stylesheet" href="~/user/assets/css/swiper.css" type="text/css" />
+    <link rel="stylesheet" href="~/user/assets/css/dark.css" type="text/css" />
+    <link rel="stylesheet" href="~/user/assets/css/font-icons.css" type="text/css" />
+    <link rel="stylesheet" href="~/user/assets/css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="~/user/assets/css/magnific-popup.css" type="text/css" />
+    <link rel="stylesheet" href="~/user/assets/css/responsive.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/pagination.css" type="text/css" />
+</head>
+<body class="stretched">
+    <div id="wrapper" class="clearfix">
+
+        <!-- Header
+        ============================================= -->
+        <header id="header">
+
+            <div id="header-wrap">
+
+                <div class="container clearfix">
+
+                    <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+                    <!--Logo start-->
+                    <div id="logo">
+                        <a href="index.html" class="standard-logo" data-dark-logo="/user/assets/images/yudhanih.png"><img src="~/user/assets/images/yudhanih.png" alt="Canvas Logo"></a>
+                        <a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
+                    </div><!-- #logo end -->
+
+                    <nav id="primary-menu">
+                        <ul>
+                            <li>
+                                <a href="/Login"><div>Login</div></a>
+                            </li>
+                            <li>
+                                <a href="/Register"><div>Register</div></a>
+                            </li>
+                        </ul>
+                    </nav><!-- #primary-menu end -->
+
+                </div>
+            </div>
+
+        </header><!-- #header end -->
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+        <footer>
+            <div id="copyrights">
+
+                <div class="container clearfix">
+
+                    <div class="col_half">
+                        Copyrights &copy; 2022 MCC Batch <br>
+
+                    </div>
+
+                    <div class="col_half col_last tright">
+                        <div class="fright clearfix">
+
+
+                        </div>
+                        <div class="clear"></div>
+
+
+                    </div>
+
+                </div>
+
+            </div><!-- #copyrights end -->
+        </footer>
+    </div><!-- #wrapper end -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/pagination.min.js"></script>
+    <script src="~/js/User.js"></script>
+    <script src="~/js/Search.js"></script>
+
+
+    <!--Themeforest JS-->
+    <script src="~/user/assets/js/jquery.js"></script>
+    <script src="~/user/assets/js/plugins.js"></script>
+    <script src="~/user/assets/js/functions.js"></script>
+</body>
+</html>

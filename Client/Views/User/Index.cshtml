@@ -1,0 +1,136 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_LayoutUser";
+}
+
+<section id="slider" class="slider-element slider-parallax swiper_wrapper full-screen clearfix">
+
+    <div class="slider-parallax-inner">
+
+        <div class="swiper-container swiper-parent">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide dark" style="background-image: url('/user/assets/images/mcc0.png');">
+                    <div class="container clearfix">
+                        <div class="slider-caption slider-caption-center">
+                            <h2 data-animate="fadeInUp" style="color:black;">Welcome to Segment 4</h2>
+                            <p class="d-none d-sm-block" data-animate="fadeInUp" style="color:black;" data-delay="200">Metrodata coding camp Batch 66</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="background-image: url('/user/assets/images/newwbanner.png'); background-position: center top;">
+                    <div class="container clearfix">
+                        <div class="slider-caption">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-arrow-left"><i class="icon-angle-left"></i></div>
+            <div class="slider-arrow-right"><i class="icon-angle-right"></i></div>
+            <div class="slide-number"><div class="slide-number-current"></div><span>/</span><div class="slide-number-total"></div></div>
+        </div>
+
+    </div>
+
+</section>
+
+<!--kotak jumlah-->
+
+<!-- Content
+        ============================================= -->
+<section id="content">
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+
+            @*<div class="section topmargin nobottommargin nobottomborder">
+                <div class="container clearfix">
+                    <div class="heading-block center nomargin">
+                        <h3>Our Latest Works</h3>
+                    </div>
+                </div>
+            </div>*@
+            <!-- Portfolio Filter
+        ============================================= -->
+            @*<ul class="portfolio-filter clearfix" data-container="#portfolio">
+
+                <li class="activeFilter"><a href="#" data-filter="*">Show All</a></li>
+                <li><a href="#" data-filter=".pf-icons">Icons</a></li>
+                <li><a href="#" data-filter=".pf-illustrations">Illustrations</a></li>
+                <li><a href="#" data-filter=".pf-uielements">UI Elements</a></li>
+                <li><a href="#" data-filter=".pf-media">Media</a></li>
+                <li><a href="#" data-filter=".pf-graphics">Graphics</a></li>
+
+            </ul> #portfolio-filter end *@
+            <ul class="portfolio-filter clearfix" data-container="#portfolio" id="menuIndra">
+            </ul>
+
+            <div class="portfolio-shuffle" data-container="#portfolio">
+                <i class="icon-random"></i>
+            </div>
+
+            <div class="clear"></div>
+
+            <!-- Portfolio Items
+        ============================================= -->
+            <div id="portfolio" class="portfolio grid-container clearfix">
+
+            </div><!-- #portfolio end -->
+
+        </div>
+
+        <!--data user-->
+        <div class="section topmargin nobottommargin nobottomborder">
+            <div class="container clearfix">
+                <div class="heading-block center nomargin">
+                    <h3>Our Latest Works</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix align-items-stretch bottommargin-lg">
+
+            <div class="col-lg-3 col-md-6 dark center col-padding" style="background-color: #515875;">
+                <i class="i-plain i-xlarge divcenter icon-users"></i>
+                <div class="counter counter-lined"><span id="totalUsers" data-from="0" data-refresh-interval="50" data-speed="2000"></span></div>
+                <h5>User</h5>
+            </div>
+
+            <div class="col-lg-3 col-md-6 dark center col-padding" style="background-color: #576F9E;">
+                <i class="i-plain i-xlarge divcenter icon-line2-graph"></i>
+                <div class="counter counter-lined"><span id="totalTransactions" data-from="0" data-refresh-interval="25" data-speed="3500"></span></div>
+                <h5>Transaction</h5>
+            </div>
+
+            <div class="col-lg-3 col-md-6 dark center col-padding" style="background-color: #6697B9;">
+                <i class="i-plain i-xlarge divcenter icon-line-tag"></i>
+                <div class="counter counter-lined"><span id="totalTopics" data-from="0" data-refresh-interval="25" data-speed="3500"></span></div>
+                <h5>Topic</h5>
+            </div>
+
+            <div class="col-lg-3 col-md-6 dark center col-padding" style="background-color: #88C3D8;">
+                <i class="i-plain i-xlarge divcenter icon-line2-layers"></i>
+                <div class="counter counter-lined"><span id="totalCourses" data-from="0" data-refresh-interval="30" data-speed="2700"></span></div>
+                <h5>Course</h5>
+            </div>
+
+        </div>
+
+        <div class="container clearfix">
+            <div id="tesimonials" class="widget">
+                <center>
+                    <h4 class="highlight-me">Testimonials</h4>
+                    <div class="fslider testimonial noborder nopadding noshadow" data-animation="slide" data-arrows="false">
+                        <div class="flexslider">
+                            <div class="slider-wrap" id="iniTestiloh">
+
+                            </div>
+                        </div>
+                    </div>
+                </center>
+            </div>
+        </div>
+
+
+    </div>
+   
+
+</section><!-- #content end -->
