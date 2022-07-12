@@ -111,7 +111,7 @@ function detailBuyCourse(data) {
 
           
             $.each(itemSection, function (key, val) {
-                tmp1 += `<a class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">${val.name}</h5></div><p class="mb-1">${val.description}</p></a >`;
+                tmp1 += `<a class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1">${val.name} </h5></div><p class="mb-1">${val.description}</p></a >`;
             })
             console.log(tmp1);
             $("#SectionGrup").html(tmp1);
@@ -320,12 +320,14 @@ function AddTransaction() {
                             data: JSON.stringify(obj)
                         }).done((result) => {
                            
-                            $("#modalsBuyCourse").modal('hide');
+
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Proof of payment has been uploaded successfully',
                             })
-                            document.getElementById("base").attr("val", "");
+                            $("#modalsBuyCourse").modal('hide');
+                            $("#labelbuy").html("Choose the File");
+                            document.getElementById("base").attr("val", " ");
                         }).fail((error) => {
                             console.log(error)
                         })
@@ -347,7 +349,7 @@ function AddTransaction() {
                     title: 'Oops...',
                     text: 'Course already purchased, please wait for confirmation',
                 })
-                document.getElementById("form_AddTransaction").reset();
+                $("#labelbuy").html("Choose the File");
                 $("#modalsBuyCourse").modal('hide');
 
             }
@@ -358,7 +360,7 @@ function AddTransaction() {
                     title: 'Oops...',
                     text: 'Course already purchased',
                 })
-                document.getElementById("form_AddTransaction").reset();
+                $("#labelbuy").html("Choose the File");
                 $("#modalsBuyCourse").modal('hide');
 
             }
@@ -371,12 +373,14 @@ function AddTransaction() {
                         contentType: "application/json",
                         data: JSON.stringify(obj)
                     }).done((result) => {
-
-                        $("#modalsBuyCourse").modal('hide');
+                        
                         Swal.fire({
                             icon: 'success',
                             title: 'Proof of payment has been uploaded successfully',
                         })
+                        /* document.getElementById("fileinput").value = " ";*/
+                        $("#labelbuy").html("Choose the File");
+                        $("#modalsBuyCourse").modal('hide');
                         document.getElementById("base").attr("val", "");
                     }).fail((error) => {
                         console.log(error)
@@ -391,8 +395,9 @@ function AddTransaction() {
                         title: 'Oops...',
                         text: 'Course already purchased',
                     })
-                    document.getElementById("form_AddTransaction").reset();
-                    $("#modalsBuyCourse").modal('hide');
+                   $("#labelbuy").html("Choose the File");
+                  /* $("#labelbuy").val('');*/
+                   $("#modalsBuyCourse").modal('hide');
                 }
 
                 
@@ -408,6 +413,10 @@ function AddTransaction() {
 
 }
 
+
+function resetModalBuy() {
+    $("#labelbuy").html("Choose the File");
+}
 
 //Insert
 /*$("#form_AddTransaction").submit(function (e) {
@@ -634,10 +643,12 @@ $('#formMyProfile').submit(function (e) {
 
     let obj = new Object(); //sesuaikan sendiri nama objectnya dan beserta isinya
     //ini ngambil value dari tiap inputan di form nya
+
+
     obj.UserId = parseInt($("#myUserId").val());
     obj.firstName = $("#myFirstName").val();
     obj.lastName = $("#myLastName").val();
-    obj.Birthdate = $("#myBirthdate").val();
+    obj.Birthdate = $("#myBirthDate").val();
     obj.Gender = parseInt($("#myGender").val());
     obj.Phone = $("#myPhone").val();
     obj.Email = $("#myEmail").val();
@@ -715,7 +726,7 @@ $('#formMyProfile').submit(function (e) {
             })
         }
     })
-    //isi dari object kalian buat sesuai dengan bentuk object yang akan di pos
+   /* isi dari object kalian buat sesuai dengan bentuk object yang akan di pos*/
 })
 
 
@@ -838,6 +849,17 @@ $(document).ready(function () {
 
     });
 
+})
+
+//Upload File
+$('#fileinput').on('change', function () {
+    console.log("I am inside upload event");
+    files = $(this)[0].files;
+    name = '';
+    for (var i = 0; i < files.length; i++) {
+        name += '\"' + files[i].name + '\"' + (i != files.length - 1 ? ", " : "");
+    }
+    $(".custom-file-label").html(name);
 })
 
 //MY COURSE
@@ -984,7 +1006,7 @@ $.ajax({
 
 
 
-//TESTIMONY
+//ADD TESTIMONY
 function AddTesti() {
 
 
@@ -1045,6 +1067,8 @@ function AddTesti() {
     })
 
 }
+
+
 
 
 
