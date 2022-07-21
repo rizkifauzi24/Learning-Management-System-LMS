@@ -308,6 +308,8 @@ $.ajax({
     console.log(totalTr)
     $("#TotalTrDEC").html(totalTr);
 })
+
+
 //DONUT Chart GENDER
 $.ajax({
     url: "https://localhost:44306/API/User",
@@ -669,29 +671,39 @@ $("#topicUpdate").submit(function (e) {
     console.log(obj);
 
 
-
-    $.ajax({
-        url: "https://localhost:44306/API/Topic",
-        type: "PUT",
-        data: obj,
-        /*  crossDomain: true,*/
-        data: JSON.stringify(obj),
-        contentType: 'application/json;charset=utf-8',
-    }).done((result) => {
-        $("#detailTopic").modal('hide');
+    if (obj.name == "") {
         Swal.fire({
-            position: 'Center',
-            icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
+            icon: 'warning',
+            title: 'Data Cannot Empty',
         })
-        $('#DataTable_Topic').DataTable().ajax.reload();
-    }).fail((error) => {
-        console.log(error);
-        alert("Update Gagal");
+    } else {
 
-    })
+        $.ajax({
+            url: "https://localhost:44306/API/Topic",
+            type: "PUT",
+            data: obj,
+            /*  crossDomain: true,*/
+            data: JSON.stringify(obj),
+            contentType: 'application/json;charset=utf-8',
+        }).done((result) => {
+            $("#detailTopic").modal('hide');
+            Swal.fire({
+                position: 'Center',
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            $('#DataTable_Topic').DataTable().ajax.reload();
+        }).fail((error) => {
+            console.log(error);
+            alert("Update Gagal");
+
+        })
+    }
+
+
+   
 
 
 })
@@ -947,22 +959,35 @@ $("#form_updateCourse").submit(function (e) {
     obj.price = parseInt($("#Uprice").val());
     console.log(obj);
     //isi dari object kalian buat sesuai dengan bentuk object yang akan di post
-    $.ajax({
-        url: ("https://localhost:44306/API/Course"),
-        type: "PUT",
-        contentType: "application/json",
-        data: JSON.stringify(obj) //jika terkena 415 unsupported media type (tambahkan headertype Json & JSON.Stringify();)
-    }).done((result) => {
-        $("#modalsUpdateCourse").modal('hide');
+
+    if (obj.name == "" || obj.description == "" || obj.price == "") {
         Swal.fire({
-            icon: 'success',
-            title: 'Update Success',
+            icon: 'warning',
+            title: 'Data Cannot Empty',
         })
-        let table = $("#DataTable_Course").DataTable();
-        table.ajax.reload();
-    }).fail((error) => {
-        console.log(error)
-    })
+    } else {
+
+        $.ajax({
+            url: ("https://localhost:44306/API/Course"),
+            type: "PUT",
+            contentType: "application/json",
+            data: JSON.stringify(obj) //jika terkena 415 unsupported media type (tambahkan headertype Json & JSON.Stringify();)
+        }).done((result) => {
+            $("#modalsUpdateCourse").modal('hide');
+            Swal.fire({
+                icon: 'success',
+                title: 'Update Success',
+            })
+            let table = $("#DataTable_Course").DataTable();
+            table.ajax.reload();
+        }).fail((error) => {
+            console.log(error)
+        })
+
+    }
+
+
+    
 })
 
 //Delete
@@ -1219,22 +1244,35 @@ $("#form_updateSection").submit(function (e) {
     obj.link = $("#Ulink").val();
     console.log(obj);
     //isi dari object kalian buat sesuai dengan bentuk object yang akan di post
-    $.ajax({
-        url: ("https://localhost:44306/API/Section"),
-        type: "PUT",
-        contentType: "application/json",
-        data: JSON.stringify(obj) //jika terkena 415 unsupported media type (tambahkan headertype Json & JSON.Stringify();)
-    }).done((result) => {
-        $("#modalsUpdateSection").modal('hide');
+
+    if (obj.name == "" || obj.description == "" || obj.link == "") {
         Swal.fire({
-            icon: 'success',
-            title: 'Update Success',
+            icon: 'warning',
+            title: 'Data Cannot Empty',
         })
-        let table = $("#DataTable_Section").DataTable();
-        table.ajax.reload();
-    }).fail((error) => {
-        console.log(error)
-    })
+    } else {
+
+        $.ajax({
+            url: ("https://localhost:44306/API/Section"),
+            type: "PUT",
+            contentType: "application/json",
+            data: JSON.stringify(obj) //jika terkena 415 unsupported media type (tambahkan headertype Json & JSON.Stringify();)
+        }).done((result) => {
+            $("#modalsUpdateSection").modal('hide');
+            Swal.fire({
+                icon: 'success',
+                title: 'Update Success',
+            })
+            let table = $("#DataTable_Section").DataTable();
+            table.ajax.reload();
+        }).fail((error) => {
+            console.log(error)
+        })
+
+
+    }
+
+
 })
 
 //Delete
@@ -1533,27 +1571,39 @@ $('#FormUpdateCustomer').submit(function (e) {
 
     console.log(obj);
     //isi dari object kalian buat sesuai dengan bentuk object yang akan di post
-    $.ajax({
-        url: "https://localhost:44306/API/User",
-        type: "PUT",
-        contentType: 'application/json',
-        data: JSON.stringify(obj), //jika terkena 415 unsupported media type (tambahkan headertype Json & JSON.Stringify();)
-    }).done((result) => {
-        //buat alert pemberitahuan jika success
 
-        $('#updateData').modal('hide');
-        console.log(result);
-        $('#DataTable_User').DataTable().ajax.reload();
+    if (obj.firstName == "" || obj.lastName == "" || obj.Gender == "" || obj.Birthdate == "") {
         Swal.fire({
-            icon: 'success',
-            title: 'Data has been updated',
+            icon: 'warning',
+            title: 'Data Cannot Empty',
         })
-        //$('#FormUpdateCustomer').attr("class", "needs-validation");
-    }).fail((error) => {
-        //alert pemberitahuan jika gagal
-        alert('Data not updated');
-        console.log(error)
-    })
+    } else {
+
+        $.ajax({
+            url: "https://localhost:44306/API/User",
+            type: "PUT",
+            contentType: 'application/json',
+            data: JSON.stringify(obj), //jika terkena 415 unsupported media type (tambahkan headertype Json & JSON.Stringify();)
+        }).done((result) => {
+            //buat alert pemberitahuan jika success
+
+            $('#updateData').modal('hide');
+            console.log(result);
+            $('#DataTable_User').DataTable().ajax.reload();
+            Swal.fire({
+                icon: 'success',
+                title: 'Data has been updated',
+            })
+            //$('#FormUpdateCustomer').attr("class", "needs-validation");
+        }).fail((error) => {
+            //alert pemberitahuan jika gagal
+            alert('Data not updated');
+            console.log(error)
+        })
+
+    }
+
+
 })
 
 //Reset Form After Update

@@ -216,9 +216,6 @@ function readURL(input) {
         }
     }
 
-   
-
-
     if (fileSizeValidatejpeg(input, 10, 2048) == true ) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
